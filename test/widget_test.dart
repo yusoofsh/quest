@@ -7,7 +7,7 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:quest/main.dart';
+import 'package:quest/presentation/app.dart';
 
 void main() {
   testWidgets(
