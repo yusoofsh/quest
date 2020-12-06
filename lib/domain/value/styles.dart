@@ -20,16 +20,27 @@ const _primarySwatch = MaterialColor(
 const _disabledColor = Color(0xFF333333);
 
 /// Application specific [ThemeData].
-ThemeData _themeData({Brightness brightness}) => ThemeData(
-      brightness: brightness,
-      primarySwatch: _primarySwatch,
-      disabledColor: _disabledColor,
-      fontFamily: 'IBMPlexMono',
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-    );
+ThemeData _themeData({
+  Color backgroundColor,
+}) {
+  return ThemeData(
+    fontFamily: 'IBMPlexMono',
+    primarySwatch: _primarySwatch,
+    disabledColor: _disabledColor,
+    backgroundColor: backgroundColor,
+    scaffoldBackgroundColor: backgroundColor,
+    splashColor: backgroundColor,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    brightness: ThemeData.estimateBrightnessForColor(backgroundColor),
+  );
+}
 
 /// Light mode.
-final lightThemeData = _themeData(brightness: Brightness.light);
+final lightThemeData = _themeData(
+  backgroundColor: NeumorphicColors.background,
+);
 
 /// Dark mode.
-final darkThemeData = _themeData(brightness: Brightness.dark);
+final darkThemeData = _themeData(
+  backgroundColor: NeumorphicColors.darkBackground,
+);
