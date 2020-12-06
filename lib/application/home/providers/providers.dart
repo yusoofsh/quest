@@ -3,4 +3,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quest/domain/value/value.dart' as value;
 
+/// Provides hello strings to anywhere of
+/// the application and watch the changes.
 final helloProvider = Provider((_) => value.hello);
