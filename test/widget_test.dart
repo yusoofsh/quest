@@ -11,16 +11,20 @@ import 'package:quest/presentation/app.dart';
 
 void main() {
   testWidgets(
-    'The "Xaltius Quest" is exist',
+    'The "Hello" is exist',
     (WidgetTester tester) async {
       // Build our app and trigger a frame.
       //
       // We declare "ProviderScope" as riverpod requirements,
       // and follows the runApp method for the tests to pass.
-      await tester.pumpWidget(ProviderScope(child: QuestApp()));
+      await tester.pumpWidget(
+        const ProviderScope(
+          child: QuestApp(),
+        ),
+      );
 
       // Verify that our "hello app" has "Xaltius Quest".
-      expect(find.text('Xaltius Quest'), findsOneWidget);
+      expect(find.text('Hello'), findsOneWidget);
     },
   );
 }
