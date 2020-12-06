@@ -27,6 +27,7 @@ dependencies:
 
 dev_dependencies:
   flutter_launcher_icons: ^0.8.1
+  flutter_native_splash: ^0.1.9
   flutter_test:
     sdk: flutter
 
@@ -50,3 +51,12 @@ flutter_icons:
   android: true
   ios: true
   image_path: "asset/image/launcher.png"
+
+# Configure application splash.
+# $ flutter pub run flutter_native_splash:create
+# Run above command if this section and related files modified.
+flutter_native_splash:
+  fill: false
+  android_disable_fullscreen: true
+  color: "#E1E8F9"
+  image: "asset/image/splash.png"
