@@ -24,6 +24,7 @@ ThemeData _themeData({Brightness brightness}) => ThemeData(
       brightness: brightness,
       primarySwatch: _primarySwatch,
       disabledColor: _disabledColor,
+      fontFamily: 'IBMPlexMono',
       visualDensity: VisualDensity.adaptivePlatformDensity,
     );
 
