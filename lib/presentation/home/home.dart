@@ -41,14 +41,12 @@ class AppBar extends StatelessWidget implements PreferredSizeWidget {
           builder: (BuildContext context) {
             return AnimatedIconButton(
               size: 24,
-              duration: const Duration(milliseconds: 200),
-              onPressed: () {
-                ThemeSwitcher.of(context).changeTheme(
-                  theme: ThemeProvider.of(context).brightness == Brightness.dark
-                      ? value.lightThemeData
-                      : value.darkThemeData,
-                );
-              },
+              duration: const Duration(milliseconds: 500),
+              onPressed: () => ThemeSwitcher.of(context).changeTheme(
+                theme: ThemeProvider.of(context).brightness == Brightness.dark
+                    ? value.lightThemeData
+                    : value.darkThemeData,
+              ),
               startIcon: const Icon(
                 value.sun,
                 color: Colors.white,
