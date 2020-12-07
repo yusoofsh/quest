@@ -27,43 +27,6 @@ class HomeView extends StatelessWidget {
   }
 }
 
-/// Serve content.
-class Body extends StatelessWidget {
-  /// Initializes.
-  const Body();
-
-  @override
-  Widget build(BuildContext context) {
-    final _titles = [
-      'bike',
-      'boat',
-      'bus',
-      'car',
-      'railway',
-      'run',
-      'subway',
-      'transit',
-      'walk'
-    ];
-
-    return SafeArea(
-      child: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        itemCount: 4,
-        itemBuilder: (_, index) {
-          return Card(
-            child: ListTile(
-              title: Text(
-                _titles[index],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
 /// Neumorphism appbar.
 class AppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Initializes.
@@ -105,6 +68,43 @@ class AppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize {
     return Size.fromHeight(
       NeumorphicAppBar().preferredSize.height,
+    );
+  }
+}
+
+/// Serve content.
+class Body extends StatelessWidget {
+  /// Initializes.
+  const Body();
+
+  @override
+  Widget build(BuildContext context) {
+    final _titles = [
+      'bike',
+      'boat',
+      'bus',
+      'car',
+      'railway',
+      'run',
+      'subway',
+      'transit',
+      'walk'
+    ];
+
+    return SafeArea(
+      child: ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        itemCount: 4,
+        itemBuilder: (_, index) {
+          return Card(
+            child: ListTile(
+              title: Text(
+                _titles[index],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
