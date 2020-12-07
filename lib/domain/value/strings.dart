@@ -2,4 +2,4 @@
 const appName = 'Xaltius interview';
 
 /// Hello.
-const hello = 'Hello';
+const hello = 'Hello there';
