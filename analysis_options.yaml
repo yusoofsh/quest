@@ -9,4 +9,3 @@ linter:
     - sort_constructors_first
     - prefer_single_quotes
     - lines_longer_than_80_chars
-    - public_member_api_docs
