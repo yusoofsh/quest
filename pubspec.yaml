@@ -21,6 +21,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  animated_icon_button: ^0.3.0
+  animated_theme_switcher: ^1.0.9
+  flutter_feather_icons: ^1.0.3
   flutter:
     sdk: flutter
   flutter_neumorphic: ^3.0.3
@@ -38,10 +41,20 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+  # The following specifies the font used within the application.
   fonts:
+    # The main font is monospaced type font.
     - family: IBMPlexMono
       fonts:
         - asset: asset/font/IBMPlexMono-Regular.otf
+    # Not really a typeface but it contains the custom IconData.
+    - family: Icons
+      fonts:
+        - asset: asset/font/Icons.ttf
 
 # Configure application icons.
 # $ flutter pub run flutter_launcher_icons:main
