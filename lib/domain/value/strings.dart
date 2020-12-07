@@ -5,7 +5,7 @@ const appName = 'Xaltius interview';
 const greetings = 'Hello there';
 
 /// Rest URL.
-const baseUrl = 'http://localhost:8084';
+const baseUrl = 'https://3593954bc7b1.ngrok.io';
 
 /// Wrong?
 const exceptionMessage = 'Something wrong';

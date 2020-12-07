@@ -1,20 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:quest/domain/value/value.dart' as value;
 
 /// An instance utility for Dio.
 final dio = Dio()
   ..interceptors.add(
-    // We configure interceptors.
     InterceptorsWrapper(
       onRequest: (options) async {
         // Do something before request is sent.
-        options.merge(
-          // Extend timout.
-          connectTimeout: 5000,
-          receiveTimeout: 3000,
-        );
+        options.baseUrl = value.baseUrl;
+        // Extend timout.
+        options.connectTimeout = 5000;
+        options.receiveTimeout = 3000;
 
-        // Continue.
         return options;
       },
       onError: (error) {
@@ -23,7 +21,6 @@ final dio = Dio()
         // Make sure not to clutter production.
         debugPrint(error.response.toString());
 
-        // Continue.
         return error;
       },
     ),

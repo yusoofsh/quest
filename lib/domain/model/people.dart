@@ -1,21 +1,15 @@
-// ignore_for_file: public_member_api_docs
-
-import 'dart:convert';
-
+/// {@template people_model}
 /// Model that holds people's property temporarily.
+/// {@endtemplate}
 class PeopleModel {
+  /// {@macro people_model}
   const PeopleModel({
     this.id,
     this.name,
     this.role,
   });
 
-  factory PeopleModel.fromRawJson(String data) {
-    return PeopleModel.fromJson(
-      json.decode(data) as Map<String, dynamic>,
-    );
-  }
-
+  /// Factories convert from JSON.
   factory PeopleModel.fromJson(Map<String, dynamic> json) {
     return PeopleModel(
       id: json['id'] as int,
@@ -27,14 +21,4 @@ class PeopleModel {
   final int id;
   final String name;
   final String role;
-
-  String toRawJson() => json.encode(toJson());
-
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'id': id,
-      'name': name,
-      'role': role,
-    };
-  }
 }
