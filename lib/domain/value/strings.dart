@@ -1,5 +1,5 @@
 /// The application name.
 const appName = 'Xaltius interview';
 
-/// Hello.
-const hello = 'Hello there';
+/// Mostly used on main screen.
+const greetings = 'Hello there';

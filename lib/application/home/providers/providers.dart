@@ -5,4 +5,4 @@ import 'package:quest/domain/value/value.dart' as value;
 
 /// Provides hello strings to anywhere of
 /// the application and watch the changes.
-final helloProvider = Provider((_) => value.hello);
+final helloProvider = Provider((_) => value.greetings);

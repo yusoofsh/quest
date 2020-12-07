@@ -35,7 +35,7 @@ class AppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return NeumorphicAppBar(
-      title: const Text(value.hello),
+      title: const Text(value.greetings),
       actions: [
         ThemeSwitcher(
           builder: (BuildContext context) {
