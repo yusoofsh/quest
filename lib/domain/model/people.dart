@@ -3,21 +3,21 @@
 import 'dart:convert';
 
 /// Model that holds people's property temporarily.
-class People {
-  const People({
+class PeopleModel {
+  const PeopleModel({
     this.id,
     this.name,
     this.role,
   });
 
-  factory People.fromRawJson(String data) {
-    return People.fromJson(
+  factory PeopleModel.fromRawJson(String data) {
+    return PeopleModel.fromJson(
       json.decode(data) as Map<String, dynamic>,
     );
   }
 
-  factory People.fromJson(Map<String, dynamic> json) {
-    return People(
+  factory PeopleModel.fromJson(Map<String, dynamic> json) {
+    return PeopleModel(
       id: json['id'] as int,
       name: json['name'] as String,
       role: json['role'] as String,
