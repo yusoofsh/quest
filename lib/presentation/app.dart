@@ -14,6 +14,7 @@ class QuestApp extends StatelessWidget {
   Widget build(_) {
     return ThemeProvider(
       initTheme: value.darkThemeData,
+      duration: const Duration(milliseconds: 500),
       child: Builder(
         builder: (BuildContext context) {
           return NeumorphicApp(
