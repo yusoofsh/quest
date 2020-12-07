@@ -15,20 +15,25 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.1.0+1
+version: 0.2.0+1
 
 environment:
-  sdk: ">=2.12.0-0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  animated_icon_button: ^0.3.0
+  animated_theme_switcher: ^1.0.9
   flutter:
     sdk: flutter
+  flutter_neumorphic: ^3.0.3
+  flutter_riverpod: ^0.12.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.8.1
+  flutter_native_splash: ^0.1.9
   flutter_test:
     sdk: flutter
-
-  lint: ^1.5.1
+  lint: ^1.3.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -39,3 +44,30 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  # The following specifies the font used within the application.
+  fonts:
+    # The main font is monospaced type font.
+    - family: IBMPlexMono
+      fonts:
+        - asset: asset/font/IBMPlexMono-Regular.otf
+    # Not really a typeface but it contains the custom IconData.
+    - family: Icons
+      fonts:
+        - asset: asset/font/Icons.ttf
+
+# Configure application icons.
+# $ flutter pub run flutter_launcher_icons:main
+# Run above command if this section modified.
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "asset/image/launcher.png"
+
+# Configure application splash.
+# $ flutter pub run flutter_native_splash:create
+# Run above command if this section and related files modified.
+flutter_native_splash:
+  fill: false
+  android_disable_fullscreen: true
+  color: "#DDE6E8"
+  image: "asset/image/splash.png"
