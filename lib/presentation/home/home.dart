@@ -2,12 +2,17 @@ import 'package:animated_icon_button/animated_icon_button.dart';
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quest/application/provider/home.dart';
 import 'package:quest/domain/value/value.dart' as value;
+import 'package:quest/presentation/home/widget/widget.dart';
 
+/// {@template home_view}
 /// Displays of the users list or
 /// just "home" or maybe home sweet home ig.
+/// {@endtemplate}
 class HomeView extends StatelessWidget {
-  /// Initializes.
+  /// {@macro home_view}
   const HomeView();
 
   @override
@@ -27,9 +32,11 @@ class HomeView extends StatelessWidget {
   }
 }
 
-/// Neumorphism appbar.
+/// {@template app_bar}
+/// Neumorphism styled appbar.
+/// {@endtemplate}
 class AppBar extends StatelessWidget implements PreferredSizeWidget {
-  /// Initializes.
+  /// {@macro app_bar}
   const AppBar();
 
   @override
@@ -70,36 +77,24 @@ class AppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-/// Serve content.
+/// {@template body}
+/// Serve the main content .
+/// {@endtemplate}
 class Body extends StatelessWidget {
-  /// Initializes.
+  /// {@macro body}
   const Body();
 
   @override
   Widget build(BuildContext context) {
-    final _titles = [
-      'bike',
-      'boat',
-      'bus',
-      'car',
-      'railway',
-      'run',
-      'subway',
-      'transit',
-      'walk'
-    ];
-
     return SafeArea(
-      child: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        itemCount: 4,
-        itemBuilder: (_, index) {
-          return Card(
-            child: ListTile(
-              title: Text(
-                _titles[index],
-              ),
-            ),
+      child: Consumer(
+        builder: (_, watch, __) {
+          final _people = watch(peopleProvider);
+
+          return _people.when(
+            loading: () => const LoadingWidget(),
+            error: (error, _) => FailureWidget(error: error),
+            data: (data) => SuccessWidget(data: data),
           );
         },
       ),
