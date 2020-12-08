@@ -14,8 +14,8 @@ const exceptionMessage = 'Something wrong';
 const notFound = 'Maybe you forgot to start the server?';
 
 /// Data path to server.
-const dataPath = '$baseUrl/data/data';
+const dataPath = '/data/data';
 
 /// Explain current URL is used.
 const currentUrl =
-    'The server URL currently used is: $dataPath\nand the error code is:';
+    'The server URL currently used is: $baseUrl$dataPath and the error is:';

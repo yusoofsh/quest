@@ -5,8 +5,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quest/application/provider/home.dart';
 import 'package:quest/domain/value/value.dart' as value;
-import 'package:quest/presentation/home/widget/failure.dart';
-import 'package:quest/presentation/home/widget/success.dart';
+import 'package:quest/presentation/home/widget/widget.dart';
 
 /// {@template home_view}
 /// Displays of the users list or
@@ -93,9 +92,7 @@ class Body extends StatelessWidget {
           final _people = watch(peopleProvider);
 
           return _people.when(
-            loading: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
+            loading: () => const LoadingWidget(),
             error: (error, _) => FailureWidget(error: error),
             data: (data) => SuccessWidget(data: data),
           );
