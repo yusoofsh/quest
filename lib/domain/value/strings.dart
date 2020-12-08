@@ -2,10 +2,10 @@
 const appName = 'Xaltius interview';
 
 /// Mostly used on main screen.
-const greetings = 'Hello there';
+String greetings = 'Hello there';
 
 /// Rest URL.
-const baseUrl = 'http://localhost:8084';
+const baseUrl = 'https://31af7b07871a.ngrok.io';
 
 /// Wrong?
 const exceptionMessage = 'Something wrong';
@@ -18,4 +18,7 @@ const dataPath = '/data/data';
 
 /// Explain current URL is used.
 const currentUrl =
-    'The server URL currently used is: $baseUrl$dataPath and the error is:';
+// ignore: leading_newlines_in_multiline_strings
+    '''The server URL currently used is:\n$baseUrl$dataPath\nand the error message is:\n''';
+
+const tryAgain = 'Try again';

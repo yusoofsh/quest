@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quest/application/provider/home.dart';
 import 'package:quest/domain/value/value.dart' as value;
 
@@ -21,21 +22,25 @@ class FailureWidget extends StatelessWidget {
             Image.asset(
               'asset/image/not_found.png',
               alignment: Alignment.topCenter,
-              height: MediaQuery.of(context).size.height / 1.5,
+              height: MediaQuery.of(context).size.height / 1.6,
             ),
-            const SizedBox(height: 24.0),
             Text(
               value.notFound,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            const SizedBox(height: 12.0),
+            const SizedBox(height: 8.0),
             RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
                 text: '${value.currentUrl} $_message',
                 style: Theme.of(context).textTheme.caption,
               ),
+            ),
+            const SizedBox(height: 16.0),
+            OutlineButton(
+              onPressed: () => context.refresh(peopleProvider),
+              child: const Text(value.tryAgain),
             ),
           ],
         ),
