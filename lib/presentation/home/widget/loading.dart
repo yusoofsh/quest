@@ -21,6 +21,7 @@ class LoadingWidget extends StatelessWidget {
               height: 16.0,
               width: MediaQuery.of(context).size.width / 3,
               padding: const EdgeInsets.only(top: 4.0),
+              interval: const Duration(milliseconds: 200),
             ),
           ),
         );
@@ -32,6 +33,7 @@ class LoadingWidget extends StatelessWidget {
     double height,
     double width,
     EdgeInsets padding,
+    Duration interval,
   }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,6 +43,8 @@ class LoadingWidget extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Shimmer(
+              interval: interval ?? Duration.zero,
+              duration: const Duration(seconds: 4),
               child: SizedBox(
                 height: height,
                 width: width,

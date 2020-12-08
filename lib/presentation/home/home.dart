@@ -42,7 +42,13 @@ class AppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return NeumorphicAppBar(
-      title: const Text(value.greetings),
+      title: Consumer(
+        builder: (_, watch, __) {
+          final _greetings = watch(greetingsProvider).state;
+
+          return Text(_greetings);
+        },
+      ),
       actions: [
         ThemeSwitcher(
           builder: (BuildContext context) {
@@ -91,10 +97,37 @@ class Body extends StatelessWidget {
         builder: (_, watch, __) {
           final _people = watch(peopleProvider);
 
+          // Made request to server with [FutureProvider].
+          //
+          // Return corresponding data or errors or loading.
           return _people.when(
-            loading: () => const LoadingWidget(),
-            error: (error, _) => FailureWidget(error: error),
-            data: (data) => SuccessWidget(data: data),
+            loading: () {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context
+                    .read(greetingsProvider)
+                    .state = 'Please wait...';
+              });
+
+              return const LoadingWidget();
+            },
+            error: (error, _) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context
+                    .read(greetingsProvider)
+                    .state = 'Uh oh!';
+              });
+
+              return FailureWidget(error: error);
+            },
+            data: (data) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context
+                    .read(greetingsProvider)
+                    .state = 'Welcome';
+              });
+
+              return SuccessWidget(data: data);
+            },
           );
         },
       ),
