@@ -53,11 +53,11 @@ flutter:
     # The main font is monospaced type font.
     - family: IBMPlexMono
       fonts:
-        - asset: asset/font/IBMPlexMono-Regular.otf
+        - asset: asset/font/ibm_plex_mono.otf
     # Not really a typeface but it contains the custom IconData.
     - family: Icons
       fonts:
-        - asset: asset/font/Icons.ttf
+        - asset: asset/font/icons.ttf
 
 # Configure application icons.
 # $ flutter pub run flutter_launcher_icons:main
