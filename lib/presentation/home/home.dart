@@ -5,6 +5,8 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quest/application/provider/home.dart';
 import 'package:quest/domain/value/value.dart' as value;
+import 'package:quest/presentation/home/widget/failure.dart';
+import 'package:quest/presentation/home/widget/success.dart';
 
 /// {@template home_view}
 /// Displays of the users list or
@@ -94,25 +96,8 @@ class Body extends StatelessWidget {
             loading: () => const Center(
               child: CircularProgressIndicator(),
             ),
-            error: (error, _) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Center(
-                child: Text('$error'),
-              ),
-            ),
-            data: (value) => ListView.builder(
-              itemCount: value.length,
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              itemBuilder: (_, index) {
-                return Card(
-                  child: ListTile(
-                    title: Text(
-                      value[index].name,
-                    ),
-                  ),
-                );
-              },
-            ),
+            error: (error, _) => FailureWidget(error: error),
+            data: (data) => SuccessWidget(data: data),
           );
         },
       ),

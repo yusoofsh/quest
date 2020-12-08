@@ -5,7 +5,17 @@ const appName = 'Xaltius interview';
 const greetings = 'Hello there';
 
 /// Rest URL.
-const baseUrl = 'https://3593954bc7b1.ngrok.io';
+const baseUrl = 'http://localhost:8084';
 
 /// Wrong?
 const exceptionMessage = 'Something wrong';
+
+/// 404.
+const notFound = 'Maybe you forgot to start the server?';
+
+/// Data path to server.
+const dataPath = '$baseUrl/data/data';
+
+/// Explain current URL is used.
+const currentUrl =
+    'The server URL currently used is: $dataPath\nand the error code is:';

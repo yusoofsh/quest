@@ -46,6 +46,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # The following specifies the font used within the application.
+  assets:
+    - asset/image/
   fonts:
     # The main font is monospaced type font.
     - family: IBMPlexMono
