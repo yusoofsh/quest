@@ -1,5 +1,5 @@
 import 'package:quest/domain/model/people.dart';
-import 'package:quest/domain/util/dio.dart';
+import 'package:quest/domain/utility/dio.dart';
 
 /// A direct communication with APIs.
 class PeopleRepository {
